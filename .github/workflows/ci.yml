@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-run:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,8 +16,9 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: '11'  # Adjust the Java version as needed
 
-      - name: Build and Test
+      - name: Build and Run Spring Boot App
         run: |
-          ./gradlew build
+          ./gradlew clean build  # Replace with your build command
+          build/libs/Project-0.0.1-SNAPSHOT.jar
