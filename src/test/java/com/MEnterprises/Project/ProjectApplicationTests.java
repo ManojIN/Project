@@ -21,7 +21,7 @@ class ProjectApplicationTests {
 	private MockMvc mockMvc;
 	@Test
 	void TestEndpoint() throws Exception {
-		mockMvc.perform(MockMvcRequestBuilders.get("/hello").
+		mockMvc.perform(MockMvcRequestBuilders.get("/").
 				contentType(MediaType.APPLICATION_JSON)).
 				andExpect(MockMvcResultMatchers.status().isOk())
 				.andExpect(MockMvcResultMatchers.content().string("Hello, World!"));
