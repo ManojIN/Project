@@ -1,0 +1,26 @@
+name: Spring Boot CI
+
+on:
+  push:
+    branches:
+      - master # Change this to your main branch name
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8' # You can change this to your desired Java version
+
+      - name: Build with Gradle
+        run: ./gradlew clean build --no-daemon
+
+      - name: Run Tests
+        run: ./gradlew test --no-daemon
